@@ -6,13 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 5427e7d3c48bcb9d383e08ba057359b570c6118d0e640da5baeb0e298502a4b2
 
 build:
   number: 0
-  script: python -m pip install . --no-deps --ignore-installed
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
   skip: True  # [py<37]
 
 requirements:
@@ -23,7 +22,7 @@ requirements:
     - python
   run:
     - python
-    - attrs  >=19.2.0
+    - attrs >=19.2.0
 
 test:
   imports:
@@ -39,7 +38,10 @@ about:
   license_family: MIT
   license_file: LICENSE
   summary: Capture the outcome of Python function calls.
-  description: Capture the outcome of Python function calls.
+  description: |
+    Capture the outcome of Python function calls.
+  doc_url: https://outcome.readthedocs.io/en/latest/
+  dev_url: https://github.com/python-trio/outcome
 
 extra:
   recipe-maintainers:
