@@ -40,7 +40,7 @@ about:
   summary: Capture the outcome of Python function calls.
   description: |
     Capture the outcome of Python function calls.
-  doc_url: https://outcome.readthedocs.io/en/latest/
+  doc_url: https://outcome.readthedocs.io
   dev_url: https://github.com/python-trio/outcome
 
 extra:
